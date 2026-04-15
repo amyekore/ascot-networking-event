@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RSVP — Kore Systems Networking Event</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f0f2f5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      overflow: hidden;
+      width: 100%;
+      max-width: 520px;
+    }
+
+    /* Header */
+    .card-header {
+      background-color: #0f2044;
+      padding: 36px 40px 28px;
+    }
+    .brand {
+      display: inline-block;
+      border: 2px solid #3b82f6;
+      border-radius: 4px;
+      padding: 5px 12px;
+      margin-bottom: 20px;
+    }
+    .brand span:first-child { color: #fff; font-size: 17px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .brand span:last-child  { color: #3b82f6; font-size: 17px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; }
+    .card-header .eyebrow { color: #93c5fd; font-size: 12px; letter-spacing: 3px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
+    .card-header h1 { color: #ffffff; font-size: 24px; line-height: 1.3; font-weight: 700; }
+    .card-header p  { color: #93c5fd; font-size: 14px; margin-top: 8px; }
+
+    /* Accent bar */
+    .accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, #1d4ed8 0%, #3b82f6 100%);
+    }
+
+    /* Form body */
+    .card-body { padding: 36px 40px 40px; }
+    .card-body p.intro {
+      color: #374151;
+      font-size: 15px;
+      line-height: 1.65;
+      margin-bottom: 28px;
+    }
+
+    .form-group { margin-bottom: 20px; }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f2044;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid #d1d5db;
+      border-radius: 6px;
+      font-size: 15px;
+      color: #111827;
+      background: #f9fafb;
+      transition: border-color 0.15s, box-shadow 0.15s;
+      outline: none;
+    }
+    input[type="text"]:focus,
+    input[type="email"]:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 3px rgba(59,130,246,0.15);
+      background: #fff;
+    }
+    input::placeholder { color: #9ca3af; }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      background-color: #1d4ed8;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      letter-spacing: 0.5px;
+      margin-top: 28px;
+      transition: background-color 0.15s, transform 0.1s;
+    }
+    .btn:hover  { background-color: #1e40af; }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { background-color: #93c5fd; cursor: not-allowed; }
+
+    /* Status messages */
+    .msg {
+      display: none;
+      margin-top: 20px;
+      padding: 14px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+    .msg.success { background-color: #ecfdf5; color: #065f46; border-left: 4px solid #10b981; display: block; }
+    .msg.error   { background-color: #fef2f2; color: #991b1b; border-left: 4px solid #ef4444; display: block; }
+
+    /* Footer */
+    .card-footer {
+      background-color: #0f2044;
+      padding: 20px 40px;
+      text-align: center;
+    }
+    .card-footer p {
+      color: #64748b;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+    .card-footer a { color: #3b82f6; text-decoration: none; }
+
+    @media (max-width: 560px) {
+      .card-header, .card-body, .card-footer { padding-left: 24px; padding-right: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- Header -->
+    <div class="card-header">
+      <div class="brand">
+        <span>KORE</span><span> SYSTEMS</span>
+      </div>
+      <p class="eyebrow">Event Registration</p>
+      <h1>Kore Systems Networking Event</h1>
+      <p>Wednesday, May 14, 2026 &nbsp;|&nbsp; 6:00 PM – 9:00 PM</p>
+    </div>
+
+    <!-- Accent bar -->
+    <div class="accent-bar"></div>
+
+    <!-- Form -->
+    <div class="card-body">
+      <p class="intro">
+        Seats are limited. Fill in your details below and hit <strong>Send RSVP</strong> — we'll follow up with a confirmation and any event details you need.
+      </p>
+
+      <!--
+        SETUP INSTRUCTIONS:
+        1. Go to https://formspree.io and sign up for a free account.
+        2. Create a new form and set the notification email to YOUR email address.
+        3. Copy your form's endpoint URL (looks like https://formspree.io/f/xxxxxxxx).
+        4. Replace "YOUR_FORMSPREE_ENDPOINT" in the form action below with that URL.
+           Example: action="https://formspree.io/f/xpzgwnko"
+      -->
+      <form id="rsvpForm" action="https://formspree.io/f/xojyjaov" method="POST">
+
+        <!-- Hidden field: tells Formspree what subject line to use in the email to you -->
+        <input type="hidden" name="_subject" value="New RSVP — Kore Systems Networking Event" />
+
+        <!-- Hidden field: redirect off (we handle response ourselves with JS) -->
+        <input type="hidden" name="_next" value="false" />
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required autocomplete="name" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required autocomplete="email" />
+        </div>
+
+        <!-- Hidden field: message body so you can see it clearly in the email -->
+        <input type="hidden" id="msgBody" name="message" value="" />
+
+        <button type="submit" class="btn" id="submitBtn">Send RSVP &rarr;</button>
+
+        <div id="successMsg" class="msg">
+          You're on the list! We'll be in touch with confirmation details shortly.
+        </div>
+        <div id="errorMsg" class="msg">
+          Something went wrong. Please try again or email us directly at
+          <a href="mailto:info@koresystems.com">info@koresystems.com</a>.
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <div class="card-footer">
+      <p>
+        &copy; 2026 Kore Systems. All rights reserved.<br/>
+        Questions? <a href="mailto:info@koresystems.com">info@koresystems.com</a>
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    const form       = document.getElementById('rsvpForm');
+    const submitBtn  = document.getElementById('submitBtn');
+    const successMsg = document.getElementById('successMsg');
+    const errorMsg   = document.getElementById('errorMsg');
+    const msgBody    = document.getElementById('msgBody');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const name  = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+
+      // Build a clear message body for the email you'll receive
+      msgBody.value = `${name} has RSVP'd and would like a confirmation email.\n\nName: ${name}\nEmail: ${email}`;
+
+      submitBtn.disabled    = true;
+      submitBtn.textContent = 'Sending…';
+      successMsg.style.display = 'none';
+      errorMsg.style.display   = 'none';
+
+      try {
+        const response = await fetch(form.action, {
+          method:  'POST',
+          headers: { 'Accept': 'application/json' },
+          body:    new FormData(form)
+        });
+
+        if (response.ok) {
+          successMsg.classList.add('success');
+          successMsg.style.display = 'block';
+          form.reset();
+        } else {
+          const data = await response.json();
+          throw new Error(data?.errors?.map(err => err.message).join(', ') || 'Submission failed');
+        }
+      } catch (err) {
+        errorMsg.classList.add('error');
+        errorMsg.style.display = 'block';
+        console.error('RSVP error:', err);
+      } finally {
+        submitBtn.disabled    = false;
+        submitBtn.textContent = 'Send RSVP →';
+      }
+    });
+  </script>
+
+</body>
+</html>
