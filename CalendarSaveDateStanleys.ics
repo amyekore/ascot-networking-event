@@ -1,0 +1,15 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Kore Systems//Ascot Afternoon//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20260618T123000Z
+DTEND:20260618T173000Z
+SUMMARY:An Ascot Afternoon at Stanley's - Kore Systems
+LOCATION:Stanley's Chelsea\, 151 Sydney Street\, London SW3 6NT
+DESCRIPTION:Join Kore Systems for An Ascot Afternoon at Stanley's Chelsea\, 18th June 2026.
+STATUS:CONFIRMED
+SEQUENCE:0
+END:VEVENT
+END:VCALENDAR
